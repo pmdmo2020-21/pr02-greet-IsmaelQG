@@ -53,13 +53,15 @@
         <ImageView
             android:id="@+id/imgTreatment"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:contentDescription="img"
             android:src="@drawable/ic_mr"/>
         <RadioButton
             android:id="@+id/rdbTreatmentMr"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="@string/rdbTreatmentMr"/>
+            android:text="@string/rdbTreatmentMr"
+            android:checked="true"/>
         <RadioButton
             android:id="@+id/rdbTreatmentMrs"
             android:layout_width="wrap_content"
@@ -89,8 +91,7 @@
         android:id="@+id/pgbCounter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        />
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"/>
 
     <TextView
         android:id="@+id/lblCounter"
