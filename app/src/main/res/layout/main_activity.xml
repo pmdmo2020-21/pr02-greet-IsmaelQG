@@ -9,8 +9,8 @@
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/swtPremiumSwitch"
-        android:text="@string/swtPremiumSwitch"
+        android:id="@+id/swtPremium"
+        android:text="@string/swtPremium"
         android:layout_gravity="end"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
@@ -91,6 +91,7 @@
         android:id="@+id/pgbCounter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:max="10"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"/>
 
     <TextView
