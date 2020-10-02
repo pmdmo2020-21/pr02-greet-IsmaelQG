@@ -76,9 +76,9 @@
 
     <CheckBox
         android:id="@+id/chkPolitely"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/chkPolitely"/>
+        android:text="@string/chkPolitely" />
 
     <Button
         android:id="@+id/btnGreet"

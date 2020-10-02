@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean premium;
     private String pronoun = "Mr. ";
     private boolean polite;
+    private int contador = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         isPremium();
         isPolite();
         show();
+        contador();
     }
 
     private void isPremium(){
@@ -34,10 +36,12 @@ public class MainActivity extends AppCompatActivity {
                 if(((CompoundButton)view).isChecked()){
                     premium=true;
                     visibility(8);
+                    contador = 0;
                 }
                 else{
                     premium=false;
                     visibility(0);
+                    contador = 0;
                 }
             }
         });
@@ -76,17 +80,39 @@ public class MainActivity extends AppCompatActivity {
                 String name = binding.txtName.getText().toString();
                 String surname = binding.txtSurname.getText().toString();
                 if(!name.isEmpty() && !surname.isEmpty()){
-                    if (polite) {
-                        binding.lblMessage.setText("Good morning " + pronoun + name + " " + surname + ". Pleased to meet you");
+                    if(contador == 10){
+                        binding.lblMessage.setText("Buy premium subscription to go on greeting!!");
                     }
-                    else{
-                        binding.lblMessage.setText("Hello " + name + " " + surname + ". What's up?");
+                    else {
+                        if (polite) {
+                            binding.lblMessage.setText("Good morning " + pronoun + name + " " + surname + ". Pleased to meet you");
+                            if(!premium){
+                                sumarContador();
+                            }
+                            contador();
+                        } else {
+                            binding.lblMessage.setText("Hello " + name + " " + surname + ". What's up?");
+                            if(!premium){
+                                sumarContador();
+                            }
+                            contador();
+                        }
                     }
                 }
             }
         });
     }
 
+    private void sumarContador(){
+        if(contador < 10){
+            contador++;
+        }
+    }
+
+    private void contador(){
+        binding.pgbCounter.setProgress(contador);
+        binding.lblCounter.setText(contador + " of " + binding.pgbCounter.getMax());
+    }
 
     private void image(){
         binding.rdbTreatmentMr.setOnClickListener(new View.OnClickListener() {
